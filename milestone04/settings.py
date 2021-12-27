@@ -20,7 +20,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['milestone04.herokuapp.com', 'localhost']
 
-
 # Application definition
 
 INSTALLED_APPS = [
