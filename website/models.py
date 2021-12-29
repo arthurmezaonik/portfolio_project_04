@@ -40,9 +40,8 @@ class Review(models.Model):
                              related_name="reviews")
     name = models.CharField(max_length=80)
     email = models.EmailField()
-    body = models.TextField()
+    review = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    approved = models.BooleanField(default=False)
 
     class Meta:
         ordering = ["created_on"]

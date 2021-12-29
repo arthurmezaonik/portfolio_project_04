@@ -2,5 +2,14 @@ from django.contrib import admin
 from .models import Job, Review
 
 # Register your models here.
-admin.site.register(Job)
-admin.site.register(Review)
+@admin.register(Job)
+class JobAdmin(admin.ModelAdmin):
+    list_display = ('title', 'slug', 'job_type')
+    search_fields = ['title', 'description']
+    prepopulated_fields = {'slug': ('title',)}
+
+@admin.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ['name', 'review', 'job', 'created_on']
+    list_filter = ['created_on']
+    search_fields = ('name', 'email', 'review')
