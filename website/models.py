@@ -3,7 +3,7 @@ from django.db.models import F
 from django.contrib.auth.models import User
 
 WORK_TYPES = (
-    (0, 'Plumb'),
+    (0, 'Plumber'),
     (1, 'Electrical'),
     (2, 'Small Repairs'),
     (3, 'Flooring'),
@@ -12,7 +12,7 @@ WORK_TYPES = (
 )
 
 
-class Job(models.Model):
+class Worker(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
@@ -36,8 +36,7 @@ class Job(models.Model):
 
 
 class Review(models.Model):
-    job = models.ForeignKey(Job, on_delete=models.CASCADE,
-                             related_name="reviews")
+    job = models.ForeignKey(Worker, on_delete=models.CASCADE, related_name="reviews")
     name = models.CharField(max_length=80)
     email = models.EmailField()
     review = models.TextField()
@@ -47,4 +46,4 @@ class Review(models.Model):
         ordering = ["created_on"]
 
     def __str__(self):
-        return f"Comment {self.body} by {self.name}"
+        return f"Comment {self.review} by {self.name}"

@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Job, Review
+from .models import Worker, Review
 
 # Register your models here.
-@admin.register(Job)
-class JobAdmin(admin.ModelAdmin):
+@admin.register(Worker)
+class JWorkerAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'job_type')
     search_fields = ['title', 'description']
     prepopulated_fields = {'slug': ('title',)}

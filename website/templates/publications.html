@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>Publications</h1>
+
+{% for publication in publications%}
+{{publication.title}}
+{% endfor %}
+{% endblock content %}
