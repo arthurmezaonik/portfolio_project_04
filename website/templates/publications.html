@@ -2,9 +2,31 @@
 {% load static %}
 
 {% block content %}
-<h1>Publications</h1>
+<div class="container">
+    <h1>Publications</h1>
 
-{% for publication in publications%}
-{{publication.title}}
-{% endfor %}
+    <div class="row">
+        {% for publication in publications%}
+            <div class="col-md-6 col-xl-4">
+                <div class="card text-dark bg-warning mb-3">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="..." class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-header">
+                                <h5 class="card-title">{{publication.title}}</h5>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2 text-muted">{{publication.author}}</h6>
+                                <p class="card-text">{{publication.description}}</p>
+                                <a href="#" class="card-link btn btn-primary">Check all Information</a>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock content %}
