@@ -2,5 +2,25 @@
 {% load static %}
 
 {% block content %}
-<h1>Index</h1>
+<!-- Hero Section -->
+<div class="container-fluid outer-container grey-bg">
+    <div class="inner-container">
+        <div class="image-container">
+            <img src="{% static 'images/hero.jpg' %}" alt="Workers" class="hero-img">
+        </div>
+        <div class="text-container">
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid outer-container">
+    <div class="inner-container">
+        <div class="row">
+            <div class="col-md-6">Publish</div>
+            <div class="col-md-6">Find</div>
+        </div>
+    </div>
+</div>
+
 {% endblock content %}
