@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Worker
+from .models import Publication
 
 
 def index(request):
@@ -7,7 +7,7 @@ def index(request):
 
 
 def worker_publication(request):
-    publications = Worker.objects.all()
+    publications = Publication.objects.all()
     return render(request, 'publications.html', {
         'publications': publications,
     })

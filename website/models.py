@@ -13,13 +13,14 @@ WORK_TYPES = (
 )
 
 
-class Worker(models.Model):
+class Publication(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="job_author"
     )
-    description = models.TextField()
+    small_description = models.CharField(max_length=200, blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
     contact_email = models.EmailField(max_length=254)
     job_type = models.IntegerField(choices=WORK_TYPES)
     likes = models.ManyToManyField(
@@ -37,7 +38,7 @@ class Worker(models.Model):
 
 
 class Review(models.Model):
-    job = models.ForeignKey(Worker, on_delete=models.CASCADE, related_name="reviews")
+    job = models.ForeignKey(Publication, on_delete=models.CASCADE, related_name="reviews")
     name = models.CharField(max_length=80)
     email = models.EmailField()
     review = models.TextField()

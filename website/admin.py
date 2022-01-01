@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import Worker, Review
+from .models import Publication, Review
 
 # Register your models here.
-@admin.register(Worker)
+@admin.register(Publication)
 class JWorkerAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'job_type')
+    list_display = ('title', 'author', 'job_type')
     search_fields = ['title', 'description']
     prepopulated_fields = {'slug': ('title',)}
 
