@@ -8,7 +8,8 @@ WORK_TYPES = (
     (2, 'Small Repairs'),
     (3, 'Flooring'),
     (4, 'Painting'),
-    (5, 'Other'),
+    (5, 'Cleaner'),
+    (6, 'Other'),
 )
 
 

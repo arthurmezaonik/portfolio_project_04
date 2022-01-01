@@ -11,7 +11,23 @@
                 <div class="card text-dark bg-warning mb-3">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="..." class="img-fluid rounded-start" alt="...">
+                            <img src="
+                                {% if publication.job_type == 0 %}
+                                    {% static 'images/job_types/plumber.jpg' %}
+                                {% elif publication.job_type == 1 %}
+                                    {% static 'images/job_types/electrician.jpg' %}
+                                {% elif publication.job_type == 2 %}
+                                    {% static 'images/job_types/small.jpg' %}
+                                {% elif publication.job_type == 3 %}
+                                    {% static 'images/job_types/flooring.jpg' %}
+                                {% elif publication.job_type == 4 %}
+                                    {% static 'images/job_types/painting.jpg' %}
+                                {% elif publication.job_type == 5 %}
+                                    {% static 'images/job_types/cleaner.jpg' %}
+                                {% elif publication.job_type == 6 %}
+                                    {% static 'images/job_types/other.jpg' %}
+                                {% endif %}
+                            " class="img-fluid rounded-start" alt="Job types image">
                         </div>
                         <div class="col-md-8">
                             <div class="card-header">
@@ -20,6 +36,7 @@
                             <div class="card-body">
                                 <h6 class="card-subtitle mb-2 text-muted">{{publication.author}}</h6>
                                 <p class="card-text">{{publication.description}}</p>
+                                
                                 <a href="#" class="card-link btn btn-primary">Check all Information</a>
                             </div>
                         </div>
