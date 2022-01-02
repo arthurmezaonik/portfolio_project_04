@@ -5,6 +5,58 @@
 <div class="container">
     <h2 class='page-header'>Publications</h2>
 
+    <div class="row top-row">
+        <div class="filter-item">
+            <label for="plumber">
+                <img src="{% static 'images/job_types/plumber.jpg' %}" alt="Plumber job category image">
+                <p>Plumber</p>
+            </label>
+            <input type="radio" id='plumber' name='job_types' value='0'>
+        </div>
+        <div class="filter-item">
+            <label for="electrician">
+                <img src="{% static 'images/job_types/electrician.jpg' %}" alt="Electrician job category image">
+                <p>Electrician</p>
+            </label>
+            <input type="radio" id='electrician' name='job_types' value='1'>
+        </div>
+        <div class="filter-item">
+            <label for="small">
+                <img src="{% static 'images/job_types/small.jpg' %}" alt="Small repairs job category image">
+                <p>Small Repairs</p>
+            </label>
+            <input type="radio" id='small' name='job_types' value='2'>
+        </div>
+        <div class="filter-item">
+            <label for="flooring">
+                <img src="{% static 'images/job_types/flooring.jpg' %}" alt="Flooring job category image">
+                <p>Flooring</p>
+            </label>
+            <input type="radio" id='flooring' name='job_types' value='3'>
+        </div>
+        <div class="filter-item">
+            <label for="painting">
+                <img src="{% static 'images/job_types/painting.jpg' %}" alt="Painting job category image">
+                <p>Painting</p>
+            </label>
+            <input type="radio" id='painting' name='job_types' value='4'>
+        </div>
+        <div class="filter-item">
+            <label for="cleaner">
+                <img src="{% static 'images/job_types/cleaner.jpg' %}" alt="Cleaner job category image">
+                <p>Cleaner</p>
+            </label>
+            <input type="radio" id='cleaner' name='job_types' value='5'>
+        </div>
+        <div class="filter-item">
+            <label for="other">
+                <img src="{% static 'images/job_types/other.jpg' %}" alt="Other job category image">
+                <p>Other</p>
+            </label>
+            <input type="radio" id='other' name='job_types' value='6'>
+        </div>
+    </div>
+
     <div class="row">
         {% for publication in publications%}
             <div class="col-lg-6 col-xl-4">
