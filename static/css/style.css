@@ -3,6 +3,11 @@
     background-color:#00000017;
 }
 
+/* commo used */
+.page-header{
+    text-transform: uppercase;
+}
+
 /* containers */
 .outer-container{
     padding: 0;
@@ -42,6 +47,10 @@
     object-fit: cover;
     max-height: 220px;
     opacity: .6;
+}
+
+.publication-title{
+    text-transform: capitalize;
 }
 
 @media screen and (min-width:768px){
