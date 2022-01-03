@@ -13,6 +13,19 @@
     display: none;
 }
 
+.selected{
+    display: block;
+}
+
+.opacity{
+    opacity: .3;
+}
+
+.opacity:hover{
+    opacity: 1;
+    transition: all 1s ease;
+}
+
 /* containers */
 .outer-container{
     padding: 0;
@@ -95,6 +108,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 label > img{
