@@ -3,9 +3,14 @@
     background-color:#00000017;
 }
 
-/* commo used */
+/* common used */
 .page-header{
     text-transform: uppercase;
+    margin: 20px 0 30px;
+}
+
+.hide{
+    display: none;
 }
 
 /* containers */
@@ -17,6 +22,10 @@
     max-width: 1440px;
     margin: 0 auto;
     position: relative;
+}
+
+.publications-container{
+    margin-top:20px;
 }
 
 /* hero */
