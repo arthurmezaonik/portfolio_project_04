@@ -144,3 +144,11 @@ label > img{
     width: 40%;
     max-width: 100px;
 }
+
+/* Publication Detail */
+.publication-detail{
+    height: calc(100vh - 136px);
+    margin: 0;
+    padding: 0;
+}
+
