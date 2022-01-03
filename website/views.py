@@ -24,3 +24,9 @@ def user_area(request, user_id):
     return render(request, 'user_area.html', {
         'user_publication':user_publication,
     })
+
+def publication_detail(request, publication_id):
+    publication_list = Publication.objects.filter(pk = publication_id)
+    return render (request, 'publication_detail.html', {
+        'publication_list':publication_list,
+    })

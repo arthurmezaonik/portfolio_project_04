@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h2 class='page-header'>Publications Detail</h2>
+    {% for publication in publication_list %}
+        {{publication.title}} <br/>
+        {{publication.small_description}} <br/>
+        {{publication.description}} <br/>
+        {{publication.author}} <br/>
+    {% endfor %}
+{% endblock content %}
