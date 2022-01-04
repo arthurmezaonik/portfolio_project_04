@@ -33,8 +33,7 @@ def create_publications(request):
 
 
 def user_area(request, user_id):
-    user = User.objects.get(pk=user_id)
-    user_publication = Publication.objects.filter(author = user)
+    user_publication = Publication.objects.filter(author_id = user_id)
     return render(request, 'user_area.html', {
         'user_publication':user_publication,
     })
