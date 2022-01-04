@@ -3,7 +3,15 @@
     background-color:#00000017;
 }
 
+.red{
+    color:red;
+}
+
 /* common used */
+.bold{
+    font-weight: 700;
+}
+
 .page-header{
     text-transform: uppercase;
     margin: 20px 0 30px;

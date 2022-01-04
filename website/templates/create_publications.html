@@ -2,17 +2,19 @@
 {% load static %}
 
 {% block content %}
-<h2>Create Publication</h2>
+<div class="container" style="margin-bottom:20px">
+    <h2 class='page-header'>Create Publication</h2>
+    {% if submitted %}
+        <h3>Your Publication Was Submitted Succeffuly!</h3>
+    {% else %}
+        <form action="" method="post">
+            {%csrf_token%}
 
-{% if submitted %}
-    <h3>Your Publication Was Submitted Succeffuly!</h3>
-{% else %}
-    <form action="" method="post">
-        {%csrf_token%}
+            {{ form.as_p }}
 
-        {{ form.as_p }}
-        <input type="submit" value="Submit" class="btn btn-outline-dark">
-    </form>
-{% endif %}
-
+            <p class='bold red'>* required fields</p>
+            <input type="submit" value="Submit" class="btn btn-outline-dark">
+        </form>
+    {% endif %}
+</div>
 {% endblock content %}
