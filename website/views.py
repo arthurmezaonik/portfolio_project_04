@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
 from .models import Publication
+from .forms import PublicationForm
 
 
 def index(request):
@@ -15,7 +17,19 @@ def worker_publication(request):
 
 
 def create_publications(request):
-    return render(request, 'create_publications.html', {})
+    submitted = False
+    if request.method == 'POST':
+        form = PublicationForm(request.POST)
+        if form.is_valid():
+            publication = form.save(commit=False)
+            publication.author_id = request.user.id
+            publication.save()
+            return HttpResponseRedirect('/create_publications?submitted=True')
+    else:
+        form = PublicationForm
+        if 'submitted' in request.GET:
+            submitted = True
+    return render(request, 'create_publications.html', {'form':form, 'submitted':submitted})
 
 
 def user_area(request, user_id):

@@ -15,10 +15,9 @@ WORK_TYPES = (
 
 class Publication(models.Model):
     title = models.CharField(max_length=200, unique=True)
-    slug = slug = models.SlugField(max_length=200, unique=True)
-    author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="job_author"
-    )
+    author_fname = models.CharField('First Name', max_length=200,)
+    author_lname = models.CharField('Last Name', max_length=200,)
+    author_id = models.IntegerField('Author ID', default=1)
     small_description = models.CharField(max_length=200, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     contact_email = models.EmailField(max_length=254)
@@ -28,17 +27,17 @@ class Publication(models.Model):
     )
 
     class Meta:
-        ordering = [F('author').asc(nulls_last=True)]
+        ordering = [F('author_fname').asc(nulls_last=True)]
 
     def __str__(self):
-        return f'{self.title} created by {self.author}'
+        return f'{self.title} created by {self.author_fname}'
 
     def number_of_likes(self):
         return self.likes.count()
 
 
 class Review(models.Model):
-    job = models.ForeignKey(Publication, on_delete=models.CASCADE, related_name="reviews")
+    publication = models.ForeignKey(Publication, on_delete=models.CASCADE, related_name="reviews")
     name = models.CharField(max_length=80)
     email = models.EmailField()
     review = models.TextField()
