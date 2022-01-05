@@ -153,6 +153,10 @@ label > img{
     max-width: 100px;
 }
 
+.create-btn{
+    margin-bottom: 15px;
+}
+
 /* Publication Detail */
 .publication-detail{
     height: calc(100vh - 136px);

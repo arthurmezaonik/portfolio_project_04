@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from .models import Publication
@@ -39,7 +39,20 @@ def user_area(request, user_id):
     })
 
 def publication_detail(request, publication_id):
-    publication_list = Publication.objects.filter(pk = publication_id)
+    publication_list = Publication.objects.get(pk = publication_id)
     return render (request, 'publication_detail.html', {
         'publication_list':publication_list,
+    })
+
+def update_publication(request, publication_id):
+    publication_list = Publication.objects.get(pk = publication_id)
+    form = PublicationForm(request.POST or None, instance=publication_list)
+
+    if form.is_valid():
+        form.save()
+        return redirect('index')
+
+    return render(request, 'update_publication.html',{
+        'publication_list':publication_list,
+        'form':form,
     })

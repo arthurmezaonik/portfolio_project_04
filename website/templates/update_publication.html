@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container" style="margin-bottom:20px">
+    <h2 class='page-header'>Update Publication</h2>
+    <form action="" method="post">
+        {%csrf_token%}
+
+        {{ form.as_p }}
+
+        <p class='bold red'>* required fields</p>
+        <input type="submit" value="Update" class="btn btn-outline-dark">
+    </form>
+
+</div>
+{% endblock content %}
