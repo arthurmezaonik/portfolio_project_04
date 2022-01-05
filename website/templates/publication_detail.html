@@ -21,15 +21,21 @@
                 {% elif publication.job_type == 6 %}
                     {% static 'images/job_types/other.jpg' %}
                 {% endif %}
-            " class="img-fluid rounded-start job_type_img full-height" alt="Job types image">
+            " class="img-fluid rounded-start job_type_img full-height publication-img" alt="Job types image">
         </div>
-        <div class="col-lg-6">
+        <div class="col-lg-6 publication-text">
             <h2 class='page-header'>Publications Detail</h2>
                 
-            {{publication.title}} <br/>
-            {{publication.small_description}} <br/>
-            {{publication.description}} <br/>
-            {{publication.author}} <br/>
+            <h3 class='title'>{{publication.title}}</h3>
+            <p class='author'>{{publication.author_fname}} {{publication.author_lname}}</p>
+
+            <p class='sdescription title bold'>Small Description:</p>
+            <p>{{publication.small_description}}</p>
+
+            <p class='description title bold'>Description:</p>
+            <p>{{publication.description}}</p>
+
+            <p class='email bold'>Contact: <span style="font-weight: 400;">{{publication.contact_email}}</span></p>
         </div>
     </div>
 </div>   
