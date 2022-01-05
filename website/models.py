@@ -14,6 +14,10 @@ WORK_TYPES = (
 
 
 class Publication(models.Model):
+    """
+        This model represents how the publication is created.
+        It's associated to the user that created the publication via author_id.
+    """
     title = models.CharField(max_length=200, unique=True)
     author_fname = models.CharField('First Name', max_length=200,)
     author_lname = models.CharField('Last Name', max_length=200,)
@@ -30,13 +34,16 @@ class Publication(models.Model):
         ordering = [F('author_fname').asc(nulls_last=True)]
 
     def __str__(self):
+        """ model that returns publication title and author name """
         return f'{self.title} created by {self.author_fname}'
 
     def number_of_likes(self):
+        """ model that returns likes on the publication """
         return self.likes.count()
 
 
 class Review(models.Model):
+    """This model represents how the reviews are created"""
     publication = models.ForeignKey(Publication, on_delete=models.CASCADE, related_name="reviews")
     name = models.CharField(max_length=80)
     email = models.EmailField()
@@ -47,4 +54,5 @@ class Review(models.Model):
         ordering = ["created_on"]
 
     def __str__(self):
+        """ model that returns the review content and author name """
         return f"Comment {self.review} by {self.name}"
