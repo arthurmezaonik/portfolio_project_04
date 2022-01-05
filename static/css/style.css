@@ -66,6 +66,34 @@
     }
 }
 
+/* Reasons */
+.reasons-title{
+    text-align: center;
+}
+
+.reasons-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.reasons{
+    padding: 0;
+}
+
+.reasons-img-container{
+    text-align: center;
+}
+
+.reasons-img{
+    width: 70%;
+    aspect-ratio: 1;
+    border-radius:50%;
+    border:3px solid #f7bb07;
+    object-fit: cover;
+}
+
 /* Publications */
 .card-text{
     min-height: 48px;
