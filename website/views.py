@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
-from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
+from django.contrib.messages import success
 from .models import Publication
 from .forms import PublicationForm
 
@@ -39,20 +39,35 @@ def user_area(request, user_id):
     })
 
 def publication_detail(request, publication_id):
-    publication_list = Publication.objects.get(pk = publication_id)
+    publication = Publication.objects.get(pk = publication_id)
     return render (request, 'publication_detail.html', {
-        'publication_list':publication_list,
+        'publication':publication,
     })
 
 def update_publication(request, publication_id):
-    publication_list = Publication.objects.get(pk = publication_id)
-    form = PublicationForm(request.POST or None, instance=publication_list)
+    publication = Publication.objects.get(pk = publication_id)
+    form = PublicationForm(request.POST or None, instance=publication)
 
-    if form.is_valid():
-        form.save()
-        return redirect('index')
+    if request.user.id == publication.author_id:
+        if form.is_valid():
+            form.save()
+            success(request,('Your publication was edited!'))
+            return redirect('index')
+        else:
+            success(request,('You are not allowed to edit this publication.'))
+            return redirect('index')
 
     return render(request, 'update_publication.html',{
-        'publication_list':publication_list,
+        'publication':publication,
         'form':form,
     })
+
+def delete_publication(request, publication_id):
+    publication = Publication.objects.get(pk = publication_id)
+    if request.user.id == publication.author_id:
+        publication.delete()
+        success(request,('Your publication was deleted!'))
+        return redirect('index')
+    else:
+        success(request,('You are not allowed to delete this publication.'))
+        return redirect('index')
