@@ -1,108 +1,323 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Find A Worker
 
-Welcome arthurmezaonik,
+Find A Worker is a website with two different main functions:
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Worker's function, where a skilled user can create a work publication. User that is looking for a worker can check the publications and get the worker's contact details.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+https://milestone04.herokuapp.com/
 
-## Gitpod Reminders
+## Author
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+Arthur Henrique El Mezaonik Martins
 
-`python3 -m http.server`
+## Table of Contents
 
-A blue button should appear to click: _Make Public_,
+- [Find A Worker](#find-a-worker)
 
-Another blue button should appear to click: _Open Browser_.
+  * [Author](#author)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+  * [Table of Contents](#table-of-contents)
 
-A blue button should appear to click: _Make Public_,
+  * [How to Use](#how-to-use)
 
-Another blue button should appear to click: _Open Browser_.
+  * [Features](#features)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+    + [Implemented Features](#implemented-features)
 
-To log into the Heroku toolbelt CLI:
+      - [Worker](#worker)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+      - [User](#user)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+    + [Future Features](#future-features)
 
-------
+  * [ERD](#erd)
 
-## Release History
+  * [Testing](#testing)
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+    + [Validation Testing](#validation-testing)
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+    + [Manual Testing](#manual-testing)
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+    + [Bugs](#bugs)
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+    + [Unifxed Bugs](#unifxed-bugs)
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+  * [Agile](#agile)
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+    + [User Stories](#user-stories)
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+    + [Kanban Board](#kanban-board)
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+  * [Deployment](#deployment)
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+    + [Creating App.](#creating-app)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+    + [Setting up database](#setting-up-database)
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+    + [Setting up Heroku App](#setting-up-heroku-app)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+    + [App Deployment](#app-deployment)
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+  * [Credits](#credits)
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+    + [Acknowledgments](#acknowledgments)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+    + [Media](#media)
 
-------
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
-## FAQ about the uptime script
 
-**Why have you added this script?**
+## How to Use
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+*__Worker:__*
 
-**How will this affect me?**
+To be a worker, the first thing you need to do is register an account on the webiste.
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+After that you will be able to access the User Area and them start to create and modify your own publications.
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+* Worker function vídeo
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+    ![Worker function vídeo](static/images/readme/gif/worker.gif)
 
-**So….?**
+*__User:__*
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+If you just want to look for a specific worker, you don't even need to register.
 
-**Can I opt out?**
+Just go to the publication page and use the top row filter to search for specific job types, or use the search bar to search for words on the titles.
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+* User function vídeo
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+    ![User function vídeo](static/images/readme/gif/user.gif)
 
-**Anything more?**
+## Features
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+### Implemented Features
 
----
+#### Worker
 
-Happy coding!
+* Sign in or create account
+
+    - On the navigation bar, the user can choose to Log in or register for a new account.
+
+    ![Sign In Page](static/images/readme/website/signin.PNG)
+
+    - Display the username and password fields to log in;
+
+    ![Sign Up Page](static/images/readme/website/signup.PNG)
+
+    - Display a form to create a new user on the website.
+
+* Navigation Bar
+
+    ![Navigation bar](static/images/readme/website/navbar-user.PNG)
+
+    - When the user is signed in, the navigation bar display anothe link to the User Area.
+
+* User Area
+
+    ![User Area](static/images/readme/website/user_area.PNG)
+
+    - The user can view all created publications;
+
+    - The User can create new publications;
+
+    - The User can edit / delete old publications
+
+#### User
+
+* Publications Page
+
+    ![Publications Page](static/images/readme/website/publication.PNG)
+
+    - The user have access to all created publications;
+
+    - The user can use the top row filter to look for specific job types;
+
+* Search Page
+
+    ![Search Page](static/images/readme/website/search.PNG)
+
+    - Using the top navigation bar, the user can search for specific words;
+
+    - The page will display all the publications that have the searched word on the title;
+
+### Future Features
+
+* For future features, we hope to implement a way that the users can give a like and comment on the publications.
+
+* We also want to implement a way that the user can send an email for the worker using the website.
+
+## ERD
+
+![ERD](static/images/readme/ERD.png)
+
+## Testing
+
+### Validation Testing
+
+* Lighthouse
+
+    - Before mobile:
+
+    ![Lighthouse before mobile](static/images/readme/tests/mobile-report.PNG)
+
+    ![Lighthouse before mobile accessibility](static/images/readme/tests/mobile-accessibilityproblem.PNG)
+
+    ![Lighthouse before mobile seo](static/images/readme/tests/mobile-seoproblem.PNG)
+
+    - After mobile:
+
+    ![Lighthouse after mobile](static/images/readme/tests/mobile-reportfixed.PNG)
+
+    - Before desktop:
+
+    ![Lighthouse before desktop](static/images/readme/tests/desktop-report.PNG)
+
+    ![Lighthouse before desktop accessibility](static/images/readme/tests/desktop-accessibilityproblem.PNG)
+
+    ![Lighthouse before desktop seo](static/images/readme/tests/desktop-seoproblem.PNG)
+
+    - After desktop:
+
+    ![Lighthouse after desktop](static/images/readme/tests/desktop-reportfixed.PNG)
+
+* HTML Validation
+
+    - Before:
+
+    ![HTML Validation before](static/images/readme/tests/html-check.PNG)
+
+    - After:
+
+    ![HTML Validation after](static/images/readme/tests/html-checkfixed.PNG)
+
+* CSS Validation
+
+    - Before:
+
+    ![CSS Validation before](static/images/readme/tests/css-check.PNG)
+
+    - After:
+
+    ![CSS Validation after](static/images/readme/tests/css-checkfixed.PNG)
+
+* JS Validation
+
+    ![JS Validation ](static/images/readme/tests/js-check.PNG)
+    
+    - This function is beeing used just on the html file, that's the reason I couldn't fix this erros.
+
+* PEP 8
+        
+    - No errors found. Files tested website.form.py, website.models.py, website.views.py, website.urls.py, and milestone04.urls.py.
+
+### Manual Testing
+
+[Manual Test Worksheet](https://docs.google.com/spreadsheets/d/1bAlIK_KV-b2nTUmMAlzxKgcm_HXzy-OZRs0tYtHcEks/edit?usp=sharing)
+
+### Bugs
+
+* No bugs reported
+
+### Unifxed Bugs
+
+* No bugs remaining
+
+## Agile
+
+### User Stories
+
+[Created Epic And User Stories](https://github.com/arthurmezaonik/new_portfolio_project_04/issues)
+
+### Kanban Board
+
+[Kanban Board](https://github.com/arthurmezaonik/new_portfolio_project_04/projects/1)
+
+## Deployment
+
+This application will be deployed via [Heroku](https://heroku.com)
+
+### Creating App.
+
+1. Ensure all code is correct and ready for deployment.
+
+2. Enter the following code to import the required dependencies to the requirements.txt file:
+    > pip3 freeze > requirements.txt
+
+    - Heroku will use this file to import the dependencies that are required.
+
+3. Log into or sign up to Heroku(it's free).
+
+    - If signing up, you will need to wait and accept an authentication email.
+
+4. Navigate to Dashboard. 
+
+5. Click "New" and select "create new app" from the drop-down menu. This is found in the upper right portion of the window.
+
+6. Provide a name for your application, this needs to be unique, and select your region.
+
+7. Click "Create App".
+
+### Setting up database
+
+1. Navigate to "Resources" and click on the field "add-ons".
+
+2. Add Heroku Postgres to the project.
+
+### Setting up Heroku App
+
+1.	Navigate to "Settings" and scroll down to "config vars".
+
+    - That’s where you would store sensitive data that needs to kept secret. On my case my file SECRET_KEY, DATABASE_URL, CLOUDINARY_URL.
+
+2. Click "Reveal Config Var", in the field key I entered the CREDS word and in the value field I copied the content as past there.
+
+### App Deployment
+
+1. Navigate to the "Deploy" section.
+
+2. Scroll down to "Deployment Method" and select "GitHub".
+
+3. Authorize the connection of Heroku to GitHub.
+
+4. Search for your GitHub repository name, and select the correct repository.
+
+5. For Deployment there are two options, Automatic Deployments or Manual.
+
+    - Automatic Deployment: This will prompt Heroku to re-build your app each time you push your code to GitHub.
+
+    - Manual Deployment: This will only prompt Heroku to build your app when you manually tell it to do so.
+
+6. Ensure the correct branch is selected "master/Main", and select the deployment method that you desire. In this case, I will be using Automatic Deployment
+
+## Credits
+
+### Acknowledgments
+
+* Code Institute: I think therefore I blog Project
+
+* Youtube channel Codemy
+
+    - Used Django lesson videos
+
+* Malia Havlicek: Reviewing and giving suggestions how to improve my project.
+
+### Media
+
+* Plumber Image: https://www.independent.co.uk/life-style/plumber-invoice-elderly-burnley-uk-james-anderson-free-depher-a9109146.html
+
+* Electrician Image: https://www.tws.edu/blog/skilled-trades/is-becoming-an-electrician-a-good-career-choice/
+
+* Small Repairs Image: https://fixer.com/basic-tools-homeowners-should-have-for-small-repairs/
+
+* Flooring Image: https://www.popularmechanics.com/home/interior-projects/how-to/a9384/8-tips-for-laying-a-plastic-laminate-floor-15903907/
+
+* Painting Image: https://www.2dodone.com/blog/ins-outs-proper-painting-job/
+
+* Cleaner Image: https://theconversation.com/whats-the-school-cleaners-name-how-kids-not-just-cleaners-are-paying-the-price-of-outsourcing-115443
+
+* Other Services Image: https://www.bestinsingapore.co/best-handyman-singapore/
+
+* Publish Image: https://www.istockphoto.com/pt/vetorial/multitasking-construction-worker-gm977762380-265820198
+
+* Find Image: https://www.istockphoto.com/vector/laptop-and-hands-on-the-keyboard-gm926105800-254122512
