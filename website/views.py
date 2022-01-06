@@ -54,14 +54,11 @@ def update_publication(request, publication_id):
     publication = Publication.objects.get(pk = publication_id)
     form = PublicationForm(request.POST or None, instance=publication)
 
-    if request.user.id == publication.author_id:
-        if form.is_valid():
-            form.save()
-            success(request,('Your publication was edited!'))
-            return redirect('index')
-        else:
-            success(request,('You are not allowed to edit this publication.'))
-            return redirect('index')
+
+    if form.is_valid():
+        form.save()
+        success(request,('Your publication was edited!'))
+        return redirect('index')
 
     return render(request, 'update_publication.html',{
         'publication':publication,
