@@ -44,7 +44,7 @@ class Publication(models.Model):
 
 class Review(models.Model):
     """This model represents how the reviews are created"""
-    publication = models.ForeignKey(Publication, on_delete=models.CASCADE, related_name="reviews")
+    publication = models.ForeignKey(Publication, on_delete=models.CASCADE, )
     name = models.CharField(max_length=80)
     email = models.EmailField()
     review = models.TextField()

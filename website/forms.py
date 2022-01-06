@@ -2,6 +2,7 @@ from django import forms
 from django.forms import ModelForm, widgets
 from .models import Publication
 
+
 class PublicationForm(ModelForm):
     """Form to create a new publication"""
     class Meta:
@@ -17,29 +18,37 @@ class PublicationForm(ModelForm):
             )
 
         labels = {
-            'title' : '',
-            'author_fname' : '',
-            'author_lname' : '',
-            'small_description' : '',
-            'description' : '',
-            'contact_email' : '',
+            'title': '',
+            'author_fname': '',
+            'author_lname': '',
+            'small_description': '',
+            'description': '',
+            'contact_email': '',
         }
 
         widgets = {
-            'title' : forms.TextInput(attrs={'class':'form-control', 'placeholder':'Title*',}),
-            'author_fname' : forms.TextInput(attrs={
-                'class':'form-control', 'placeholder':'First Name*',
+            'title': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Title*',
             }),
-            'author_lname' : forms.TextInput(attrs={
-                'class':'form-control', 'placeholder':'Last Name*',
+            'author_fname': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'First Name*',
             }),
-            'small_description' : forms.TextInput(attrs={
-                'class':'form-control', 'placeholder':'Small Description',
+            'author_lname': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Last Name*',
             }),
-            'description' : forms.Textarea(attrs={
-                'class':'form-control', 'placeholder':'Description',
+            'small_description': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Small Description',
             }),
-            'contact_email' : forms.EmailInput(attrs={
-                'class':'form-control', 'placeholder':'Contact Email*',
+            'description': forms.Textarea(attrs={
+                'class': 'form-control',
+                'placeholder': 'Description',
+            }),
+            'contact_email': forms.EmailInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Contact Email*',
             }),
         }

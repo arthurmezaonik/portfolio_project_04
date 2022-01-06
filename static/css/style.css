@@ -88,7 +88,7 @@
 
 .reasons-img{
     width: 70%;
-    aspect-ratio: 1;
+    aspect-ratio: 1/1;
     border-radius:50%;
     border:3px solid #f7bb07;
     object-fit: cover;
@@ -153,27 +153,11 @@
 }
 
 label > img{
-    aspect-ratio: 1;
+    aspect-ratio: 1/1;
     border-radius: 50%;
     border:2px solid #f7bb07;
     object-fit:cover;
     box-sizing: content-box;
-}
-
-@media screen and (min-width:768px){
-    .publication_description{
-        padding-left: 0;
-    }
-
-    .publication_img_container{
-        padding-right: 0;
-    }
-}
-
-@media screen and (min-width:1440px){
-    .top-row{
-        overflow-x: hidden;
-    }
 }
 
 /* User Area */
@@ -215,5 +199,25 @@ label > img{
 .author{
     text-transform: capitalize;
     color: rgba(0,0,0,.5);
+}
+
+/* TABLET */
+@media screen and (min-width:768px){
+    /* Publications */
+    .publication_description{
+        padding-left: 0;
+    }
+
+    .publication_img_container{
+        padding-right: 0;
+    }
+}
+
+/* DESKTOP */
+@media screen and (min-width:1440px){
+    /* Publications */
+    .top-row{
+        overflow-x: hidden;
+    }
 }
 
