@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h2 class='page-header'>User Area</h2>
+
+    <a class="btn btn-outline-dark create-btn" href="{% url 'create_publications' %}">Create Publication <i class="far fa-plus-square"></i></a>
+
+    <div class="row">
+        {% for publication in user_publication%}
+            <div class="col-lg-6 col-xl-4">
+                <div class="card text-dark bg-warning mb-3">
+                    <div class="row">
+                        <div class="col-md-4 publication_img_container">
+                            <img src="
+                                {% if publication.job_type == 0 %}
+                                    {% static 'images/job_types/plumber.jpg' %}
+                                {% elif publication.job_type == 1 %}
+                                    {% static 'images/job_types/electrician.jpg' %}
+                                {% elif publication.job_type == 2 %}
+                                    {% static 'images/job_types/small.jpg' %}
+                                {% elif publication.job_type == 3 %}
+                                    {% static 'images/job_types/flooring.jpg' %}
+                                {% elif publication.job_type == 4 %}
+                                    {% static 'images/job_types/painting.jpg' %}
+                                {% elif publication.job_type == 5 %}
+                                    {% static 'images/job_types/cleaner.jpg' %}
+                                {% elif publication.job_type == 6 %}
+                                    {% static 'images/job_types/other.jpg' %}
+                                {% endif %}
+                            " class="img-fluid rounded-start job_type_img" alt="Job types image">
+                        </div>
+                        <div class="col-md-8 publication_description">
+                            <div class="card-header">
+                                <h5 class="card-title publication-title">{{publication.title}}</h5>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-subtitle mb-2 text-muted">{{publication.author_fname}} {{publication.author_lname}}</h6>
+                                <p class="card-text">{{publication.small_description}}</p>
+                                
+                                <a href="{% url 'update_publication' publication.id %}" class="card-link btn btn-primary custom-btn"><i class="far fa-edit"></i> Edit</a>
+                                <a href="{% url 'delete_publication' publication.id %}" class="card-link btn btn-primary custom-btn" onclick="return confirm('Are you sure you want to delete it?')"><i class="far fa-trash-alt"></i> Delete</a>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock content %}

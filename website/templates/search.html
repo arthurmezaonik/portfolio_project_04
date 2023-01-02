@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    {% if searched %}
+        <h2 class='page-header'>You searched for: <strong>{{searched}}</strong></h2>
+
+        <!-- Custom filter -->
+        <div class="row top-row">
+            <div class="filter-item">
+                <label for="plumber">
+                    <img src="{% static 'images/job_types/plumber.jpg' %}" alt="Plumber job category image">
+                    <p>Plumber</p>
+                </label>
+                <input type="checkbox" id='plumber' name='job_types' value=0 onclick="jobFilter(this.value)">
+            </div>
+            <div class="filter-item">
+                <label for="electrician">
+                    <img src="{% static 'images/job_types/electrician.jpg' %}" alt="Electrician job category image">
+                    <p>Electrician</p>
+                </label>
+                <input type="checkbox" id='electrician' name='job_types' value=1 onclick="jobFilter(this.value)">
+            </div>
+            <div class="filter-item">
+                <label for="small">
+                    <img src="{% static 'images/job_types/small.jpg' %}" alt="Small repairs job category image">
+                    <p>Small Repairs</p>
+                </label>
+                <input type="checkbox" id='small' name='job_types' value=2 onclick="jobFilter(this.value)">
+            </div>
+            <div class="filter-item">
+                <label for="flooring">
+                    <img src="{% static 'images/job_types/flooring.jpg' %}" alt="Flooring job category image">
+                    <p>Flooring</p>
+                </label>
+                <input type="checkbox" id='flooring' name='job_types' value=3 onclick="jobFilter(this.value)">
+            </div>
+            <div class="filter-item">
+                <label for="painting">
+                    <img src="{% static 'images/job_types/painting.jpg' %}" alt="Painting job category image">
+                    <p>Painting</p>
+                </label>
+                <input type="checkbox" id='painting' name='job_types' value=4 onclick="jobFilter(this.value)">
+            </div>
+            <div class="filter-item">
+                <label for="cleaner">
+                    <img src="{% static 'images/job_types/cleaner.jpg' %}" alt="Cleaner job category image">
+                    <p>Cleaner</p>
+                </label>
+                <input type="checkbox" id='cleaner' name='job_types' value=5 onclick="jobFilter(this.value)">
+            </div>
+            <div class="filter-item">
+                <label for="other">
+                    <img src="{% static 'images/job_types/other.jpg' %}" alt="Other job category image">
+                    <p>Other</p>
+                </label>
+                <input type="checkbox" id='other' name='job_types' value=6 onclick="jobFilter(this.value)">
+            </div>
+            
+        </div>
+
+        <!-- Publications -->
+        <div class="row publications-container">
+            {% for publication in publications%}
+                <div data-type = '{{ publication.job_type }}' class="col-lg-6 col-xl-4 publications">
+                    <div class="card text-dark bg-warning mb-3">
+                        <div class="row">
+                            <div class="col-md-4 publication_img_container">
+                                <img src="
+                                    {% if publication.job_type == 0 %}
+                                        {% static 'images/job_types/plumber.jpg' %}
+                                    {% elif publication.job_type == 1 %}
+                                        {% static 'images/job_types/electrician.jpg' %}
+                                    {% elif publication.job_type == 2 %}
+                                        {% static 'images/job_types/small.jpg' %}
+                                    {% elif publication.job_type == 3 %}
+                                        {% static 'images/job_types/flooring.jpg' %}
+                                    {% elif publication.job_type == 4 %}
+                                        {% static 'images/job_types/painting.jpg' %}
+                                    {% elif publication.job_type == 5 %}
+                                        {% static 'images/job_types/cleaner.jpg' %}
+                                    {% elif publication.job_type == 6 %}
+                                        {% static 'images/job_types/other.jpg' %}
+                                    {% endif %}
+                                " class="img-fluid rounded-start job_type_img" alt="Job types image">
+                            </div>
+                            <div class="col-md-8 publication_description">
+                                <div class="card-header">
+                                    <h5 class="card-title publication-title">{{publication.title}}</h5>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-muted">{{publication.author_fname}} {{publication.author_lname}}</h6>
+                                    <p class="card-text">{{publication.small_description}}</p>
+                                    
+                                    <a href="{% url 'publication_detail' publication.id %}" class="card-link btn btn-primary">Check all Information</a>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h2 class='page-header'>You forgot to search for a publication.</h2>
+    {% endif %}
+    
+</div>
+{% endblock content %}
