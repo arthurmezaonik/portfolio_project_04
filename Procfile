@@ -1,1 +1,0 @@
-web: gunicorn milestone04.wsgi
